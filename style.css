@@ -1,0 +1,202 @@
+/* import fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
+
+:root {
+  /* custom colors */
+
+  --clr-bg-cream: hsl(28, 38%, 92%);
+  --clr-bg-white: hsl(0, 0%, 100%);
+
+  --clr-main-font: hsl(228, 12%, 48%);
+  --clr-heading-font: hsl(212, 21%, 14%);
+
+  --clr-btn: hsl(157, 36%, 37%);
+  --clr-btn-hover: hsl(157, 43%, 18%);
+
+  /* custom font */
+  --ff-body: "Montserrat", serif;
+  --ff-heading: "Fraunces", serif;
+
+  --fw-medium: 500;
+  --fw-bold: 700;
+}
+
+/* css resets */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+html,
+body {
+  height: 100%;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* utility classes */
+
+/* general styling */
+
+body {
+  font-family: var(--ff-body);
+  font-size: 0.875rem;
+  font-weight: var(--fw-medium);
+  color: var(--clr-main-font);
+  background-color: var(--clr-bg-cream);
+  display: grid;
+  place-content: center;
+}
+
+.main {
+  padding: 2rem;
+}
+.card {
+  max-width: 400px;
+  background-color: white;
+  border-radius: 0.625rem;
+  overflow: hidden;
+  display: grid;
+}
+
+.section-wrapper {
+  padding: clamp(1.5rem, 1.3239rem + 0.7512vw, 2rem);
+  display: grid;
+}
+
+.category {
+  font-size: 0.75rem;
+  letter-spacing: 5px;
+}
+
+.price-wrapper {
+  margin-block: 2rem 1.8125rem;
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+@media (min-width: 50em) {
+  .card {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+  }
+}
+
+.title {
+  margin-block: 1.25rem 1.5rem;
+  color: var(--clr-heading-font);
+  font-family: var(--ff-heading);
+  font-size: 2rem;
+  font-weight: var(--fw-bold);
+  line-height: 2rem;
+}
+
+.new-price {
+  color: var(--clr-btn);
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-bold);
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+.old-price {
+  font-size: 0.8125rem;
+  line-height: 1.4375rem;
+  text-decoration: line-through;
+}
+
+.button {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--clr-btn);
+  color: var(--clr-bg-white);
+  padding-block: 0.9375rem;
+}
+
+.button::before {
+  content: url(./images/icon-cart.svg);
+  padding-right: 11.61px;
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: var(--clr-btn-hover);
+}
